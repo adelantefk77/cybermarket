@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HARDCORE CYBER MARKET</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#1fb1f9",
+          "background-dark": "#050a0d",
+          "amber-glow": "#ffb400",
+          "cyber-red": "#ff2d55",
+          "cyber-green": "#00ff9f",
+        },
+        fontFamily: {
+          "display": ["Space Grotesk", "sans-serif"],
+          "digital": ["Orbitron", "sans-serif"]
+        },
+      },
+    },
+  }
+</script>
+<style type="text/tailwindcss">
+  @layer base {
+    body {
+      @apply bg-background-dark text-white selection:bg-primary/30;
+      min-height: 100dvh;
+    }
+  }
+  .cyber-grid {
+    background-image:
+      linear-gradient(rgba(31, 177, 249, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31, 177, 249, 0.08) 1px, transparent 1px);
+    background-size: 25px 25px;
+    position: relative;
+  }
+  .circuit-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L30 10 L30 30 M70 10 L90 10 L90 30 M10 90 L10 70 L30 70 M90 90 L70 90 L70 70' fill='none' stroke='rgba(31, 177, 249, 0.1)' stroke-width='0.5'/%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(31,177,249,0.2)'/%3E%3Ccircle cx='70' cy='70' r='1' fill='rgba(31,177,249,0.2)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .scanlines {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+      linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 100;
+  }
+  .glitch-title {
+    text-shadow: 2px 0 #ff2d55, -2px 0 #00ff9f, 0 0 15px rgba(31, 177, 249, 0.8);
+    letter-spacing: 2px;
+    position: relative;
+  }
+  .hologram-panel {
+    background: rgba(15, 28, 35, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(31, 177, 249, 0.3);
+    box-shadow: inset 0 0 20px rgba(31, 177, 249, 0.1), 0 0 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+  .hologram-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(31, 177, 249, 0.8), transparent);
+  }
+  .fiber-optic { filter: drop-shadow(0 0 4px #1fb1f9) drop-shadow(0 0 8px #1fb1f9); }
+  .fiber-optic-red { filter: drop-shadow(0 0 4px #ff2d55) drop-shadow(0 0 8px #ff2d55); }
+  .status-led {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px currentColor;
+  }
+  .corner-mark {
+    position: absolute;
+    width: 8px; height: 8px;
+    border: 1px solid rgba(31, 177, 249, 0.6);
+  }
+  .scrolling-tech-text {
+    font-size: 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+    opacity: 0.6;
+  }
+  .glowing-wire {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, rgba(31, 177, 249, 0.4), transparent);
+    height: 1px; width: 100%;
+    box-shadow: 0 0 10px rgba(31, 177, 249, 0.3);
+  }
+</style>
+<style>body { min-height: max(884px, 100dvh); }</style>
+</head>
+<body class="font-display">
+<div class="scanlines"></div>
+<div class="relative min-h-screen flex flex-col cyber-grid overflow-hidden">
+<div class="circuit-pattern"></div>
+<div class="glowing-wire top-[15%] opacity-20"></div>
+<div class="glowing-wire top-[45%] opacity-10"></div>
+<div class="glowing-wire top-[85%] opacity-20"></div>
+<header class="flex flex-col p-4 pt-6 gap-2 border-b border-primary/40 bg-background-dark/90 backdrop-blur-xl z-10">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="material-symbols-outlined text-primary text-3xl [text-shadow:0_0_10px_rgba(31,177,249,1)]">emergency_home</span>
+<div class="absolute -top-1 -right-1 w-2 h-2 bg-cyber-green rounded-full shadow-[0_0_8px_#00ff9f]"></div>
+</div>
+<div class="flex flex-col">
+<h1 class="text-3xl font-digital font-black italic glitch-title text-white">CYBER MARKET</h1>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[8px] font-mono tracking-[0.2em] text-primary/70">NEURAL_LINK: ESTABLISHED</span>
+<div class="status-led text-cyber-green bg-cyber-green"></div>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="relative p-2 border border-primary/30 rounded bg-primary/5">
+<span class="material-symbols-outlined text-primary text-xl">terminal</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto p-4 space-y-6 pb-32 relative z-10">
+<!-- OSINT Terminal -->
+<section class="hologram-panel rounded-sm overflow-hidden">
+<div class="flex items-center justify-between px-3 py-1.5 bg-primary/20 border-b border-primary/30">
+<div class="flex items-center gap-2">
+<div class="status-led text-cyber-green bg-cyber-green"></div>
+<span class="text-[10px] font-digital font-bold tracking-widest uppercase text-primary">LIVE_OSINT_TERMINAL</span>
+</div>
+<span class="text-[9px] font-mono text-primary/50">SEC_LEVEL: 4</span>
+</div>
+<div class="p-3 font-mono text-[10px] text-cyber-green/80 h-20 overflow-hidden relative">
+<div class="absolute top-0 right-0 p-1 opacity-20"><span class="material-symbols-outlined text-xs">radar</span></div>
+<p class="mb-1 leading-none"><span class="text-primary/60">[09:12:44]</span> INCOMING_TX: 450.22 BTC -&gt; COLD_STORAGE_7</p>
+<p class="mb-1 leading-none"><span class="text-primary/60">[09:12:46]</span> LIQUIDITY_ALERT: ETH/USDT VOLATILITY +4.2%</p>
+<p class="mb-1 leading-none"><span class="text-primary/60">[09:12:49]</span> NETWORK_STATUS: MAINNET_CONGESTION_LOW</p>
+<div class="absolute bottom-0 w-full h-8 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
+</div>
+</section>
+<!-- Market Core -->
+<section class="space-y-4">
+<div class="flex items-center justify-between border-l-2 border-primary pl-3">
+<h2 class="text-sm font-digital font-bold tracking-widest flex items-center gap-2 uppercase">
+<span class="material-symbols-outlined text-primary text-base">hive</span>Market_Core</h2>
+<div class="flex items-center gap-2">
+<span class="text-[9px] text-primary/60 font-mono">NODE_01</span>
+<div class="status-led text-cyber-green bg-cyber-green"></div>
+</div>
+</div>
+<div class="space-y-3">
+<!-- BTC -->
+<div class="hologram-panel p-4 rounded-sm border-l-4 border-l-primary/60">
+<div class="corner-mark top-0 left-0 border-r-0 border-b-0"></div>
+<div class="corner-mark bottom-0 right-0 border-l-0 border-t-0"></div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-3 shrink-0">
+<div class="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center border border-primary/40 relative">
+<span class="material-symbols-outlined text-primary text-xl">currency_bitcoin</span>
+<div class="absolute -top-1 -left-1 text-[8px] font-mono text-primary/40">01</div>
+</div>
+<div>
+<div class="font-black font-digital text-base tracking-tighter">BTC</div>
+<div class="text-[8px] text-primary/50 font-mono tracking-widest">BITCOIN</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col items-end gap-1">
+<div class="flex items-center gap-4 w-full justify-end">
+<div class="relative h-8 w-24">
+<svg class="w-full h-full fiber-optic" preserveAspectRatio="none" viewBox="0 0 100 40">
+<path d="M0 35 L10 25 L20 38 L30 15 L40 22 L50 10 L60 28 L70 5 L80 18 L90 2 L100 12" fill="none" stroke="#1fb1f9" stroke-width="2"></path>
+</svg>
+</div>
+<div class="text-right min-w-[90px]">
+<div class="font-black font-digital text-sm text-primary">$64,210.42</div>
+<div class="text-cyber-green text-[10px] font-mono font-bold">+2.45% ▲</div>
+</div>
+</div>
+<div class="scrolling-tech-text text-primary/40 text-right">VOL: 4.82B // NET: MAINNET</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gainers & Losers -->
+<section class="grid grid-cols-1 gap-4">
+<div class="hologram-panel p-4 rounded-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-16 h-16 opacity-5"><span class="material-symbols-outlined text-7xl -rotate-12">rocket_launch</span></div>
+<div class="flex items-center gap-2 mb-3">
+<div class="status-led text-cyber-green bg-cyber-green"></div>
+<h3 class="text-xs font-digital font-black tracking-[.2em] text-amber-glow uppercase">ALPHA_GAINERS_24H</h3>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-black/40 p-3 border-l-2 border-cyber-green relative">
+<div class="text-[9px] text-primary/60 font-mono">PEPE/USDT</div>
+<div class="text-xl font-black font-digital text-cyber-green">+18.4%</div>
+<div class="text-[7px] text-cyber-green/40 font-mono uppercase mt-1">VOL: 240M</div>
+</div>
+<div class="bg-black/40 p-3 border-l-2 border-cyber-green relative">
+<div class="text-[9px] text-primary/60 font-mono">AR/USDT</div>
+<div class="text-xl font-black font-digital text-cyber-green">+12.1%</div>
+<div class="text-[7px] text-cyber-green/40 font-mono uppercase mt-1">VOL: 89M</div>
+</div>
+</div>
+</div>
+<div class="hologram-panel p-4 rounded-sm relative overflow-hidden group border-cyber-red/40">
+<div class="absolute top-0 right-0 w-16 h-16 opacity-5 text-cyber-red"><span class="material-symbols-outlined text-7xl -rotate-12">trending_down</span></div>
+<div class="flex items-center gap-2 mb-3">
+<div class="status-led text-cyber-red bg-cyber-red"></div>
+<h3 class="text-xs font-digital font-black tracking-[.2em] text-cyber-red uppercase">VOID_LOSERS_24H</h3>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-black/40 p-3 border-l-2 border-cyber-red relative">
+<div class="text-[9px] text-cyber-red/60 font-mono">LUNA/USDT</div>
+<div class="text-xl font-black font-digital text-cyber-red">-24.8%</div>
+<div class="text-[7px] text-cyber-red/40 font-mono uppercase mt-1">DUMP_LVL: CRITICAL</div>
+</div>
+<div class="bg-black/40 p-3 border-l-2 border-cyber-red relative">
+<div class="text-[9px] text-cyber-red/60 font-mono">USTC/USDT</div>
+<div class="text-xl font-black font-digital text-cyber-red">-15.3%</div>
+<div class="text-[7px] text-cyber-red/40 font-mono uppercase mt-1">LIQ_TOTAL: 1.2M</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 w-full bg-background-dark/95 border-t border-primary/40 backdrop-blur-2xl px-8 py-4 flex justify-between items-center z-[110]">
+<div class="absolute -top-[1px] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-2xl [text-shadow:0_0_10px_rgba(31,177,249,0.8)]">grid_view</span>
+<span class="text-[9px] font-digital font-bold tracking-widest">DASH</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">monitoring</span>
+<span class="text-[9px] font-digital font-bold tracking-widest">TRACE</span>
+</button>
+<div class="relative -mt-12">
+<div class="w-14 h-14 rounded-full bg-background-dark border-t-2 border-primary flex items-center justify-center shadow-[0_-5px_15px_rgba(31,177,249,0.3)]">
+<span class="material-symbols-outlined text-primary text-3xl font-bold">add</span>
+</div>
+</div>
+<button class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+<span class="text-[9px] font-digital font-bold tracking-widest">CRYPT</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<span class="text-[9px] font-digital font-bold tracking-widest">SYS</span>
+</button>
+</nav>
+</div>
+</body></html>
