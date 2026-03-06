@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd cyber-market-app && npm install && npm run build",
+  "outputDirectory": "cyber-market-app/dist",
+  "framework": "vite"
+}
