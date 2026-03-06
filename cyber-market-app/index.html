@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HARDCORE CYBER MARKET</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body class="font-display">
+  <div id="app">
+    <div class="scanlines"></div>
+    <div class="relative min-h-screen flex flex-col cyber-grid overflow-hidden">
+      <div class="circuit-pattern"></div>
+      <div class="glowing-wire top-[15%] opacity-20"></div>
+      <div class="glowing-wire top-[45%] opacity-10"></div>
+      <div class="glowing-wire top-[85%] opacity-20"></div>
+      <header
+        class="flex flex-col p-4 pt-6 gap-2 border-b border-primary/40 bg-background-dark/90 backdrop-blur-xl z-10">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <span
+                class="material-symbols-outlined text-primary text-3xl [text-shadow:0_0_10px_rgba(31,177,249,1)]">emergency_home</span>
+              <div class="absolute -top-1 -right-1 w-2 h-2 bg-cyber-green rounded-full shadow-[0_0_8px_#00ff9f]"></div>
+            </div>
+            <div class="flex flex-col">
+              <h1 class="text-3xl font-digital font-black italic glitch-title text-white">CYBER MARKET</h1>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-[8px] font-mono tracking-[0.2em] text-primary/70"
+                  id="connection-status-text">NEURAL_LINK: ESTABLISHED</span>
+                <div class="status-led text-cyber-green bg-cyber-green" id="connection-status-led"></div>
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="relative p-2 border border-primary/30 rounded bg-primary/5">
+              <span class="material-symbols-outlined text-primary text-xl">terminal</span>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="flex-1 overflow-y-auto p-4 space-y-6 pb-32 relative z-10">
+        <section class="hologram-panel rounded-sm overflow-hidden">
+          <div class="flex items-center justify-between px-3 py-1.5 bg-primary/20 border-b border-primary/30">
+            <div class="flex items-center gap-2">
+              <div class="status-led text-cyber-green bg-cyber-green"></div>
+              <span
+                class="text-[10px] font-digital font-bold tracking-widest uppercase text-primary">LIVE_OSINT_TERMINAL</span>
+            </div>
+            <span class="text-[9px] font-mono text-primary/50">SEC_LEVEL: 4</span>
+          </div>
+          <div class="p-3 font-mono text-[10px] text-cyber-green/80 h-24 overflow-hidden relative">
+            <div class="absolute top-0 right-0 p-1 opacity-20">
+              <span class="material-symbols-outlined text-xs">radar</span>
+            </div>
+            <div id="osint-terminal-container" class="space-y-1">
+              <!-- Dynamic terminal lines will be injected here -->
+            </div>
+            <div
+              class="absolute bottom-0 w-full h-8 bg-gradient-to-t from-background-dark/80 to-transparent pointer-events-none">
+            </div>
+          </div>
+        </section>
+        <section class="space-y-4">
+          <div class="flex items-center justify-between border-l-2 border-primary pl-3">
+            <h2 class="text-sm font-digital font-bold tracking-widest flex items-center gap-2 uppercase">
+              <span class="material-symbols-outlined text-primary text-base">hive</span>
+              Market_Core
+            </h2>
+            <div class="flex items-center gap-2">
+              <span class="text-[9px] text-primary/60 font-mono">NODE_01</span>
+              <div class="status-led text-cyber-green bg-cyber-green"></div>
+            </div>
+          </div>
+          <div class="space-y-3" id="market-core-container">
+            <!-- Dynamic Top 10 coins will be injected here -->
+            <div class="text-center py-8 opacity-40 font-mono text-[10px] animate-pulse">SYNCHRONIZING_CORE_NODES...
+            </div>
+          </div>
+        </section>
+
+        <section class="grid grid-cols-1 gap-4">
+          <!-- Gainers Section -->
+          <div class="hologram-panel rounded-sm relative overflow-hidden group">
+            <button id="toggle-gainers" class="w-full text-left p-4 flex items-center justify-between group/header">
+              <div class="flex items-center gap-2">
+                <div class="status-led text-cyber-green bg-cyber-green"></div>
+                <h3 class="text-xs font-digital font-black tracking-[.2em] text-amber-glow uppercase">ALPHA_GAINERS_24H
+                </h3>
+              </div>
+              <span id="gainers-chevron"
+                class="material-symbols-outlined text-primary/40 transition-transform duration-300">expand_more</span>
+            </button>
+            <div class="absolute top-0 right-0 w-16 h-16 opacity-5 pointer-events-none">
+              <span class="material-symbols-outlined text-7xl -rotate-12">rocket_launch</span>
+            </div>
+            <div class="p-4 pt-0">
+              <div class="grid grid-cols-2 gap-3 transition-all duration-500 overflow-hidden" id="gainers-container">
+                <!-- Dynamic Gainers items -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Losers Section -->
+          <div class="hologram-panel rounded-sm relative overflow-hidden group border-cyber-red/40">
+            <button id="toggle-losers" class="w-full text-left p-4 flex items-center justify-between group/header">
+              <div class="flex items-center gap-2">
+                <div class="status-led text-cyber-red bg-cyber-red"></div>
+                <h3 class="text-xs font-digital font-black tracking-[.2em] text-cyber-red uppercase">VOID_LOSERS_24H
+                </h3>
+              </div>
+              <span id="losers-chevron"
+                class="material-symbols-outlined text-cyber-red/40 transition-transform duration-300">expand_more</span>
+            </button>
+            <div class="absolute top-0 right-0 w-16 h-16 opacity-5 text-cyber-red pointer-events-none">
+              <span class="material-symbols-outlined text-7xl -rotate-12">trending_down</span>
+            </div>
+            <div class="p-4 pt-0">
+              <div class="grid grid-cols-2 gap-3 transition-all duration-500 overflow-hidden" id="losers-container">
+                <!-- Dynamic Losers items -->
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <nav
+        class="fixed bottom-0 left-0 w-full bg-background-dark/95 border-t border-primary/40 backdrop-blur-2xl px-8 py-4 flex justify-between items-center z-[110]">
+        <div
+          class="absolute -top-[1px] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent">
+        </div>
+        <button class="flex flex-col items-center gap-1 text-primary">
+          <span class="material-symbols-outlined text-2xl [text-shadow:0_0_10px_rgba(31,177,249,0.8)]">grid_view</span>
+          <span class="text-[9px] font-digital font-bold tracking-widest">DASH</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-2xl">monitoring</span>
+          <span class="text-[9px] font-digital font-bold tracking-widest">TRACE</span>
+        </button>
+        <div class="relative -mt-12">
+          <div
+            class="w-14 h-14 rounded-full bg-background-dark border-t-2 border-primary flex items-center justify-center shadow-[0_-5px_15px_rgba(31,177,249,0.3)]">
+            <span class="material-symbols-outlined text-primary text-3xl font-bold">add</span>
+          </div>
+        </div>
+        <button class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+          <span class="text-[9px] font-digital font-bold tracking-widest">CRYPT</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-2xl">settings</span>
+          <span class="text-[9px] font-digital font-bold tracking-widest">SYS</span>
+        </button>
+      </nav>
+      <div
+        class="fixed top-1/4 -left-4 w-8 h-32 bg-primary/10 border-r border-primary/40 backdrop-blur-sm pointer-events-none z-0">
+        <div class="h-full w-1 bg-primary/40 absolute right-0"></div>
+      </div>
+      <div class="fixed bottom-1/4 -right-2 w-4 h-48 border-l border-cyber-red/40 pointer-events-none z-0">
+        <div class="h-full w-0.5 bg-cyber-red/20 absolute left-0"></div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
